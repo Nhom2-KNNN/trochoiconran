@@ -1,8 +1,12 @@
 // Tạo trò chơi con rắn bằng C++
 #include <iostream>
-
+#include <windows.h>
+#include <cstdlib>
+#include <conio.h>
+#include <time.h>
 using namespace std;
 
+void gotoxy( int column, int line );
 typedef struct Point {
     int x;
     int y;
@@ -34,3 +38,13 @@ public:
 
     }
 };
+void gotoxy( int column, int line )
+  {
+  COORD coord;
+  coord.X = column;
+  coord.Y = line;
+  SetConsoleCursorPosition(
+    GetStdHandle( STD_OUTPUT_HANDLE ),
+    coord
+    );
+  }
